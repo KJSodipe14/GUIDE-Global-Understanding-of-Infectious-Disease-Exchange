@@ -6,7 +6,7 @@ function Map() {
     const [outbreaks, setOutbreaks] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/outbreaks')
+        fetch('https://viruslocationproject.onrender.com/api/outbreaks')
         .then(res => res.json())
         .then(data => setOutbreaks(data))
     }, [])
