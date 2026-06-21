@@ -11,14 +11,20 @@ async function analyzeOutbreak(outbreak) {
     Title: ${outbreak.Title}
     Summary: ${outbreak.Summary}
     
-    Please provide:
-    1. A plain English summary of this outbreak
-    2. An assessment of whether this has pandemic or epidemic potential and why`;
+    Extract and return ONLY a JSON object with these fields:
+    {
+      "city": "the specific city or region of the outbreak, or null if unknown",
+      "status": "active or resolved",
+      "caseCount": number of cases as an integer or null if unknown,
+      "analysis": "2-3 sentence plain English summary and pandemic potential assessment"
+    }
+      
+    Return ONLY the JSON object, no other text.`;
 
   const response = await model.generateContent(prompt);
   const text = response.response.text();
-
-  return text;
+  const clean = text.replace(/```json|```/g, '').trim()
+  return JSON.parse(clean);
 }
 
 module.exports = { analyzeOutbreak };

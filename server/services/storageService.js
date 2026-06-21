@@ -15,26 +15,26 @@ async function fetchAndSaveOutbreaks() {
       const location = parts.slice(1).join(', ')
       const geocode = await geocodeService.geocode(location);
       let gemini = null
-      /*try {
+      try {
         gemini = outbreak.Summary
         ? await geminiService.analyzeOutbreak(outbreak)
         : null
       } catch (err) {
         console.log("Gemini failed:", err.message)
-      }*/
+      }
 
       return {
         disease: outbreak.Title,
         latitude: geocode ? geocode.lat : null,
         longitude: geocode ? geocode.lng : null,
-        city: null,
-        status: null,
-        reportedDate: null,
-        caseCount: null,
+        city: gemini ? gemini.city : null,
+        status: gemini ? gemini.status : null,
+        reportedDate: outbreak.PublicationDateAndTime || null,
+        caseCount: gemini ? gemini.caseCount : null,
         newsLink: `https://www.who.int/emergencies/disease-outbreak-news/item${outbreak.ItemDefaultUrl}`,
         newsTitle: outbreak.Title,
         whoId: outbreak.Id,
-        analysis: gemini,
+        analysis: gemini ? gemini.analysis : null,
       };
     }),
   );
