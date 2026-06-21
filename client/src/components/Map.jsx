@@ -29,8 +29,11 @@ function Map() {
                     .map(o => (
                         <Marker key={o._id} position={[o.latitude, o.longitude]}>
                             <Popup>
-                                <b>{o.disease}</b>
-                                <br />
+                                <b>{o.disease}</b><br />
+                                {o.city && <span>📍 {o.city}</span>}<br />
+                                {o.status && <span>Status: {o.status}</span>}<br />
+                                {o.caseCount && <span>Cases: {o.caseCount}</span>}<br />
+                                {o.analysis && <p>{o.analysis}</p>}
                                 {o.newsLink && <a href={o.newsLink} target="_blank">Read more</a>}
                             </Popup>
                         </Marker>
