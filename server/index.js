@@ -21,7 +21,7 @@ mongoDB
       console.log(`Server running on port ${PORT}`);
     });
 
-    cron.schedule("0 6 * * *", fetchAndSaveOutbreaks);
+    cron.schedule("0 11 * * *", fetchAndSaveOutbreaks);
   })
   .catch((err) => {
     console.error(err);

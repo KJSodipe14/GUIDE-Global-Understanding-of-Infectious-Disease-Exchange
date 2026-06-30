@@ -2,9 +2,8 @@ const dotenv = require("dotenv")
 dotenv.config()
 
 const gemini = require("@google/generative-ai");
-console.log("Gemini key:", process.env.GEMINI_API_KEY)
 const GenAI = new gemini.GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = GenAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const model = GenAI.getGenerativeModel({ model: "gemini-3.1-flash-lite" });
 
 async function analyzeOutbreak(outbreak) {
   const prompt = `You are a disease outbreak analyst. Given this outbreak information:
