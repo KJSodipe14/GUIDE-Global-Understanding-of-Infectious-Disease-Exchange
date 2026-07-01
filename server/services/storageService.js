@@ -14,7 +14,6 @@ async function fetchAndSaveOutbreaks() {
           ? outbreak.Title.split(" – ")
           : outbreak.Title.split(" - ");
       const location = parts.slice(1).join(', ')
-      const geocode = await geocodeService.geocode(location);
       const existing = await outbreakModel.findOne({ whoId: outbreak.Id });
       const hasAnalysis = existing && existing.analysis;
       let gemini = null
@@ -25,6 +24,9 @@ async function fetchAndSaveOutbreaks() {
       } catch (err) {
         console.log("Gemini failed:", err.message)
       }
+
+      const geocodeTarget = (gemini && gemini.city) || (existing && existing.city) || location;
+      const geocode = await geocodeService.geocode(geocodeTarget);
 
 
 

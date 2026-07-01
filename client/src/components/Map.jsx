@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
@@ -11,21 +10,14 @@ L.Icon.Default.mergeOptions({
 })
 
 
-function Map() {
-    const [outbreaks, setOutbreaks] = useState([])
-
-    useEffect(() => {
-        fetch('https://viruslocationproject.onrender.com/api/outbreaks')
-        .then(res => res.json())
-        .then(data => setOutbreaks(data))
-    }, [])
+function Map({ selectedDate, outbreaks }) {
 
     return (
-        <div>
-            <MapContainer center={[20, 0]} zoom={2} style={{ height: '100vh', width: '100%' }}>
+        <div style={{ height: '100%' }}>
+            <MapContainer center={[20, 0]} zoom={2} style={{ height: '100%', width: '100%' }}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 {outbreaks
-                    .filter(o => o.latitude && o.longitude)
+                    .filter(o => (o.latitude && o.longitude) && (!selectedDate || o.reportedDate.slice(0, 10) === selectedDate))
                     .map(o => (
                         <Marker key={o._id} position={[o.latitude, o.longitude]}>
                             <Popup>

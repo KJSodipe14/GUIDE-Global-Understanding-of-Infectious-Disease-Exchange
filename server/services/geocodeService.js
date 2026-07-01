@@ -5,7 +5,7 @@ async function geocode(location) {
 
   
   const response = await axios.get(
-    `https://api.opencagedata.com/geocode/v1/json?q=${location}&key=${process.env.OPENCAGE_API_KEY}`,
+    `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(location)}&key=${process.env.OPENCAGE_API_KEY}`,
   );
 
   if (response.data.results.length === 0) {
