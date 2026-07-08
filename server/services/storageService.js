@@ -17,6 +17,8 @@ async function fetchAndSaveOutbreaks() {
       const existing = await outbreakModel.findOne({ whoId: outbreak.Id });
       const hasAnalysis = existing && existing.analysis;
       let gemini = null
+
+      console.log("Processing:", outbreak.Title, "| hasAnalysis:", hasAnalysis);
       try {
         gemini = !hasAnalysis && outbreak.Summary
         ? await geminiService.analyzeOutbreak(outbreak)
@@ -24,6 +26,7 @@ async function fetchAndSaveOutbreaks() {
       } catch (err) {
         console.log("Gemini failed:", err.message)
       }
+      console.log("Gemini result:", gemini);
 
       const geocodeTarget = (gemini && gemini.city) || (existing && existing.city) || location;
       const geocode = await geocodeService.geocode(geocodeTarget);
@@ -34,7 +37,7 @@ async function fetchAndSaveOutbreaks() {
         disease: outbreak.Title,
         latitude: geocode ? geocode.lat : null,
         longitude: geocode ? geocode.lng : null,
-        city: gemini ? gemini.city : (existing ? existing.city : null),
+        city: gemini ? gemini.city : (existing ? existing.city : null) || location || null,
         status: gemini ? gemini.status : (existing ? existing.status : null),
         reportedDate: outbreak.PublicationDateAndTime || null,
         caseCount: gemini ? gemini.caseCount : (existing ? existing.caseCount : null),

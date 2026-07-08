@@ -12,7 +12,7 @@ async function analyzeOutbreak(outbreak) {
     
     Extract and return ONLY a JSON object with these fields:
     {
-      "city": "the specific city or region of the outbreak, or null if unknown",
+      "city": "the most specific single city or town name only (not a region, province list, or country), or null if unknown",
       "status": "active or resolved",
       "caseCount": number of cases as an integer or null if unknown,
       "analysis": "2-3 sentence plain English summary and pandemic potential assessment"

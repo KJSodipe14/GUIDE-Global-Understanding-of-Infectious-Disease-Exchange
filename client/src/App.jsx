@@ -33,17 +33,15 @@ function App() {
                                                 <th>Location</th>
                                                 <th>Status</th>
                                                 <th>Cases</th>
-                                                <th>Date</th>
                                               </tr>
                                             </thead>
                                             <tbody>
                                               {filteredOutbreaks.map(o => (
                                                 <tr key={o._id}>
                                                   <td>{o.disease}</td>
-                                                  <td>{o.city}</td>
+                                                  <td>{o.city || 'Global / Multi-country'}</td>
                                                   <td>{o.status}</td>
                                                   <td>{o.caseCount}</td>
-                                                  <td>{o.reportedDate?.slice(0, 10)}</td>
                                                 </tr>
                                               ))}
                                             </tbody>
