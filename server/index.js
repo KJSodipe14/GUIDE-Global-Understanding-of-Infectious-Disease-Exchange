@@ -22,7 +22,7 @@ mongoDB
     });
 
     cron.schedule("0 11 * * *", fetchAndSaveOutbreaks);
-    fetchAndSaveOutbreaks();
+    //fetchAndSaveOutbreaks();
   })
   .catch((err) => {
     console.error(err);

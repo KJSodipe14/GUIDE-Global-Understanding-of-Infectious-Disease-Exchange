@@ -18,7 +18,7 @@ async function fetchAndSaveOutbreaks() {
       const hasAnalysis = existing && existing.analysis;
       let gemini = null
 
-      console.log("Processing:", outbreak.Title, "| hasAnalysis:", hasAnalysis);
+      //console.log("Processing:", outbreak.Title, "| hasAnalysis:", hasAnalysis);
       try {
         gemini = !hasAnalysis && outbreak.Summary
         ? await geminiService.analyzeOutbreak(outbreak)
@@ -26,7 +26,7 @@ async function fetchAndSaveOutbreaks() {
       } catch (err) {
         console.log("Gemini failed:", err.message)
       }
-      console.log("Gemini result:", gemini);
+      //console.log("Gemini result:", gemini);
 
       const geocodeTarget = (gemini && gemini.city) || (existing && existing.city) || location;
       const geocode = await geocodeService.geocode(geocodeTarget);
