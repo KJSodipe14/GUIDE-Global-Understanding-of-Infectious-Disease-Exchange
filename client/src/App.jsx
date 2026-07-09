@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 function App() {
   const [selectedDate, setSelectedDate] = useState('')
   const [outbreaks, setOutbreaks] = useState([])
+  const [selectedOutbreak, setSelectedOutbreak] = useState(null)
 
   useEffect(() => {
     fetch('https://viruslocationproject.onrender.com/api/outbreaks')
@@ -18,7 +19,7 @@ function App() {
     <div className="app-container">
       <header className="header">PandemicPulse</header>
       <div className="content">
-        <div className="map-section"><Map selectedDate={selectedDate} outbreaks={outbreaks} /></div>
+        <div className="map-section"><Map selectedDate={selectedDate} outbreaks={outbreaks} selectedOutbreak={selectedOutbreak} /></div>
         <div className="sidebar">
           <div className="date-picker"><input
                                           type="date"
@@ -37,7 +38,12 @@ function App() {
                                             </thead>
                                             <tbody>
                                               {filteredOutbreaks.map(o => (
-                                                <tr key={o._id}>
+                                                <tr
+                                                  key={o._id}
+                                                  onClick={() => setSelectedOutbreak(o)}
+                                                  style={{ cursor: 'pointer'}}
+                                                  className={selectedOutbreak?._id === o._id ? 'selected' : ''}
+                                                >
                                                   <td>{o.disease}</td>
                                                   <td>{o.city || 'Global / Multi-country'}</td>
                                                   <td>{o.status}</td>

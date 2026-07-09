@@ -1,6 +1,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
+import { useEffect } from 'react'
+import { useMap } from 'react-leaflet'
 
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -37,11 +39,24 @@ function createColoredIcon(color) {
   })
 }
 
-function Map({ selectedDate, outbreaks }) {
+function FlyToOutbreak({ selectedOutbreak }) {
+    const map = useMap()
+
+    useEffect(() => {
+        if (selectedOutbreak && selectedOutbreak.latitude && selectedOutbreak.longitude) {
+            map.flyTo([selectedOutbreak.latitude, selectedOutbreak.longitude], 6)
+        }
+    }, [selectedOutbreak])
+
+    return null
+}
+
+function Map({ selectedDate, outbreaks, selectedOutbreak }) {
 
     return (
         <div style={{ height: '100%', position: 'relative' }}>
             <MapContainer center={[20, 0]} zoom={2} style={{ height: '100%', width: '100%' }}>
+                <FlyToOutbreak selectedOutbreak={selectedOutbreak} />
                 <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
                 {outbreaks
                     .filter(o => (o.latitude && o.longitude) && (!selectedDate || o.reportedDate.slice(0, 10) === selectedDate))
