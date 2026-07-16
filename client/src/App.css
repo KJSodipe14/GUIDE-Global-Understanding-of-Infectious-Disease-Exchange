@@ -228,9 +228,15 @@
 
 .table-section {
   padding: 20px;
+  overflow-y: auto;
+  max-height: calc(50vh - 80px);
+  border-bottom: 1px solid var(--border)
+}
+
+.travel-section {
+  padding: 20px;
   flex: 1;
   overflow-y: auto;
-  max-height: calc(100vh - 160px);
 }
 
 table {
@@ -250,6 +256,7 @@ th {
   position: sticky;
   top: 0;
   background: var(--bg);
+  z-index: 1;
 }
 
 tbody tr {

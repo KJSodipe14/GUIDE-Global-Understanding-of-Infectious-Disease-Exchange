@@ -1,8 +1,7 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
-import { useEffect } from 'react'
-import { useMap } from 'react-leaflet'
+import { useRef, useEffect } from 'react'
 
 delete L.Icon.Default.prototype._getIconUrl
 L.Icon.Default.mergeOptions({
@@ -52,6 +51,15 @@ function FlyToOutbreak({ selectedOutbreak }) {
 }
 
 function Map({ selectedDate, outbreaks, selectedOutbreak }) {
+    const markerRefs = useRef({})
+
+    useEffect(() => {
+        if (selectedOutbreak && markerRefs.current[selectedOutbreak._id]) {
+            setTimeout(() => {
+                markerRefs.current[selectedOutbreak._id].openPopup()
+            }, 1000)
+        }
+    }, [selectedOutbreak])
 
     return (
         <div style={{ height: '100%', position: 'relative' }}>
@@ -65,6 +73,7 @@ function Map({ selectedDate, outbreaks, selectedOutbreak }) {
                         key={o._id}
                         position={[o.latitude, o.longitude]}
                         icon={createColoredIcon(getMarkerColor(o.disease))}
+                        ref={el => markerRefs.current[o._id] = el}
                         >
                             <Popup>
                                 <b>{o.disease}</b><br />
