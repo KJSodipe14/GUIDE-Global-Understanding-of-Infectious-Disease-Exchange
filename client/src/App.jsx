@@ -130,7 +130,7 @@ function App() {
                     {travelResult.flights.length > 0 ? (
                       <div>
                         <p style={{ margin: '0 0 4px 0', fontWeight: 600 }}>Flights ({travelResult.flights.length}):</p>
-                        {travelResult.flights.slice(0, 20).map((f, i) => (
+                        {travelResult.flights.slice(0, 10).map((f, i) => (
                           <div key={i} style={{ padding: '4px 0', borderBottom: '1px solid var(--border)' }}>
                             <b>{f.airline.name}</b> {f.flight.iata} — {f.departure.scheduled?.slice(11, 16)} → {f.arrival.scheduled?.slice(11, 16)}
                           </div>
