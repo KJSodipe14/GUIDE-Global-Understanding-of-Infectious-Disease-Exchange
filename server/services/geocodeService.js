@@ -12,6 +12,7 @@ async function geocode(location) {
     return null;
   }
 
+  //console.log(JSON.stringify(response.data.results[0], null, 2))
   return response.data.results[0].geometry;
 }
 

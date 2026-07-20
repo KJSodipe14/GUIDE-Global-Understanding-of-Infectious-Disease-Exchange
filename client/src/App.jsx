@@ -16,28 +16,56 @@ function App() {
   }, [])
 
   const filteredOutbreaks = outbreaks.filter(o => !selectedDate || o.reportedDate?.slice(0, 10) === selectedDate)
-  
+
   async function calculateTravel() {
+    console.log('calculateTravel called', targetCity, selectedOutbreak?.latitude)
     if (!targetCity || !selectedOutbreak?.latitude) return
 
-    const res = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(targetCity)}&key=e85ace67d35d498db0dbfdda73dc1562`)
-    const data = await res.json()
+    //Collect the IATA codes
+    const fromCity = selectedOutbreak.city || selectedOutbreak.disease
+    const [fromRes, toRes] = await Promise.all([
+      fetch(`https://viruslocationproject.onrender.com/api/airport?city=${encodeURIComponent(fromCity)}`),
+      fetch(`https://viruslocationproject.onrender.com/api/airport?city=${encodeURIComponent(targetCity)}`)
+    ])
+    const fromData = await fromRes.json()
+    const toData = await toRes.json()
 
-    if (data.results.length === 0) return
+    console.log('fromCity:', fromCity)
+    console.log('fromData:', fromData)
+    console.log('toData:', toData)
 
-    const { lat, lng } = data.results[0].geometry
+    //Geocodes the target city for distance
+    const geoRes = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(targetCity)}&key=${import.meta.env.VITE_OPENCAGE_API_KEY}`)
+    const geoData = await geoRes.json()
+    if (geoData.results.length === 0) return
+    const { lat, lng } = geoData.results[0].geometry
 
-    //Haversine formula for distance in km
+    // Calculate distance
     const R = 6371
     const dLat = (lat - selectedOutbreak.latitude) * Math.PI / 180
     const dLng = (lng - selectedOutbreak.longitude) * Math.PI / 180
     const a = Math.sin(dLat/2) ** 2 + Math.cos(selectedOutbreak.latitude * Math.PI / 180) * Math.cos(lat * Math.PI / 180) * Math.sin(dLng/2) ** 2
     const distance = R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
-
     const flightHours = (distance / 900).toFixed(1)
 
-    setTravelResult({ distance: Math.round(distance), flightHours})
-  }
+    // Fetch flights if both IATA codes found
+    let flights = []
+    if (fromData.iata && toData.iata) {
+      const flightRes = await fetch(`http://api.aviationstack.com/v1/flights?access_key=${import.meta.env.VITE_AVIATION_API_KEY}&dep_iata=${fromData.iata}&arr_iata=${toData.iata}&limit=20`)
+      const flightData = await flightRes.json()
+      flights = flightData.data || []
+    } 
+
+    setTravelResult({
+      distance: Math.round(distance),
+      flightHours,
+      fromIATA: fromData.iata || 'Uknown',
+      toIATA: toData.iata || 'Unknown',
+      flights
+    }) 
+  } 
+
+
   return (
     <div className="app-container">
       <header className="header">PandemicPulse</header>
@@ -89,7 +117,7 @@ function App() {
                   style={{ padding: '8px', borderRadius: '4px', border: '1px solid var(--border)', background: 'var(--bg)', color: 'var(--text-h', fontSize: '12px' }}
                 />
                 <button 
-                  onClick={calculateTravel}
+                  onClick={ calculateTravel }
                   style={{ padding: '8px', borderRadius: '4px', background: 'var(--accent)', color: 'white', border: 'none', cursor: 'pointer', fontSize: '12px' }}>
                   Calculate
                 </button>
@@ -97,9 +125,22 @@ function App() {
                 {travelResult && (
                   <div style={{ fontSize: '12px', marginTop: '8px', padding: '8px', borderRadius: '4px', border: '1px solid var(--border)' }}>
                     <p style={{ margin: '0 0 4px 0' }}>📍 Distance: <b>{travelResult.distance} km</b></p>
-                    <p style={{ margin: '0' }}>✈️ Flight time: <b>~{travelResult.flightHours} hours</b></p>
+                    <p style={{ margin: '0 0 4px 0' }}>✈️ Flight time: <b>~{travelResult.flightHours} hours</b></p>
+                    <p style={{ margin: '0 0 8px 0' }}>🛫 {travelResult.fromIATA} → {travelResult.toIATA}</p>
+                    {travelResult.flights.length > 0 ? (
+                      <div>
+                        <p style={{ margin: '0 0 4px 0', fontWeight: 600 }}>Flights ({travelResult.flights.length}):</p>
+                        {travelResult.flights.slice(0, 20).map((f, i) => (
+                          <div key={i} style={{ padding: '4px 0', borderBottom: '1px solid var(--border)' }}>
+                            <b>{f.airline.name}</b> {f.flight.iata} — {f.departure.scheduled?.slice(11, 16)} → {f.arrival.scheduled?.slice(11, 16)}
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p style={{ margin: '0', color: 'var(--text)' }}>No flights found for this route.</p>
+                    )}
                   </div>
-                )}
+              )}
               </div>
             ) : (
               <p style={{ fontSize: '12px', color: 'var(--text)' }}>Select an outbreak from the table to calculate travel risk.</p>
