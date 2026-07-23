@@ -50,7 +50,50 @@ function FlyToOutbreak({ selectedOutbreak }) {
     return null
 }
 
-function Map({ selectedDate, outbreaks, selectedOutbreak }) {
+function CurvedLine({ from, to }) {
+    const map = useMap()
+
+    useEffect(() => {
+        if (!from || !to) return
+
+        // Generate curved points between two coordinates
+        const points = []
+        const steps = 50
+        for (let i = 0; i <= steps; i++) {
+            const t = i / steps
+            const lat = from[0] + (to[0] - from[0]) * t
+            const lng = from[1] + (to[1] - from[1]) * t
+            // Add arc by offsetting midpoint vertically
+            const arc = Math.sin(Math.PI * t) * 15
+            points.push([lat + arc, lng])
+        }
+
+        const line = L.polyline(points, {
+            color: 'red',
+            weight: 2,
+        }).addTo(map)
+
+        return () => map.removeLayer(line)
+    }, [from, to])
+
+    return null
+}
+
+function FitBounds({ selectedOutbreak, travelResult }) {
+    const map = useMap()
+
+    useEffect(() => {
+        if (travelResult?.targetLat && selectedOutbreak?.latitude) {
+            map.fitBounds([
+                [selectedOutbreak.latitude, selectedOutbreak.longitude],
+                [travelResult.targetLat, travelResult.targetLng]
+            ], { padding: [50, 50] })
+        }
+    }, [travelResult])
+    return null
+}
+
+function Map({ selectedDate, outbreaks, selectedOutbreak, travelResult }) {
     const markerRefs = useRef({})
 
     useEffect(() => {
@@ -65,6 +108,7 @@ function Map({ selectedDate, outbreaks, selectedOutbreak }) {
         <div style={{ height: '100%', position: 'relative' }}>
             <MapContainer center={[20, 0]} zoom={2} style={{ height: '100%', width: '100%' }}>
                 <FlyToOutbreak selectedOutbreak={selectedOutbreak} />
+                <FitBounds selectedOutbreak={selectedOutbreak} travelResult={travelResult} />
                 <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
                 {outbreaks
                     .filter(o => (o.latitude && o.longitude) && (!selectedDate || o.reportedDate.slice(0, 10) === selectedDate))
@@ -86,6 +130,21 @@ function Map({ selectedDate, outbreaks, selectedOutbreak }) {
                         </Marker>
                     ))
                 }
+
+                {travelResult && travelResult.targetLat && selectedOutbreak?.latitude && (
+                    <>
+                        <Marker
+                            position={[travelResult.targetLat, travelResult.targetLng]}
+                            icon={createColoredIcon('#00ff00')}
+                        >
+                            <Popup>🎯 Target City</Popup>
+                        </Marker>
+                        <CurvedLine
+                            from={[selectedOutbreak.latitude, selectedOutbreak.longitude]}
+                            to={[travelResult.targetLat, travelResult.targetLng]}
+                        />
+                    </>
+                )}
             </MapContainer>
             <div style={{
                 position: 'absolute',

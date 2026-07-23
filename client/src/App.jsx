@@ -61,7 +61,9 @@ function App() {
       flightHours,
       fromIATA: fromData.iata || 'Uknown',
       toIATA: toData.iata || 'Unknown',
-      flights
+      flights,
+      targetLat: lat,
+      targetLng: lng
     }) 
   } 
 
@@ -70,7 +72,7 @@ function App() {
     <div className="app-container">
       <header className="header">PandemicPulse</header>
       <div className="content">
-        <div className="map-section"><Map selectedDate={selectedDate} outbreaks={outbreaks} selectedOutbreak={selectedOutbreak} /></div>
+        <div className="map-section"><Map selectedDate={selectedDate} outbreaks={outbreaks} selectedOutbreak={selectedOutbreak} travelResult={travelResult} /></div>
         <div className="sidebar">
           <div className="date-picker"><input
                                           type="date"
