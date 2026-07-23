@@ -6,6 +6,7 @@ const mongoDB = require("mongoose");
 const cron = require("node-cron");
 const { fetchAndSaveOutbreaks } = require("./services/storageService.js");
 const airportRouter = require('./routes/airport');
+const flightsRouter = require('./routes/flights');
 
 const app = express();
 dotenv.config();
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/outbreaks", outbreaksRouter);
 app.use("/api/airport", airportRouter);
+app.use('/api/flights', flightsRouter);
 
 mongoDB
   .connect(process.env.MONGO_URI)

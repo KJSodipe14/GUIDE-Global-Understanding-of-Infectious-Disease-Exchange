@@ -51,7 +51,7 @@ function App() {
     // Fetch flights if both IATA codes found
     let flights = []
     if (fromData.iata && toData.iata) {
-      const flightRes = await fetch(`http://api.aviationstack.com/v1/flights?access_key=${import.meta.env.VITE_AVIATION_API_KEY}&dep_iata=${fromData.iata}&arr_iata=${toData.iata}&limit=20`)
+      const flightRes = await fetch(`https://viruslocationproject.onrender.com/api/flights?dep_iata=${fromData.iata}&arr_iata=${toData.iata}`)
       const flightData = await flightRes.json()
       flights = flightData.data || []
     } 
