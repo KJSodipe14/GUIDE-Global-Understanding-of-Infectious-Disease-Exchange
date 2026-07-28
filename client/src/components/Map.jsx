@@ -93,7 +93,7 @@ function FitBounds({ selectedOutbreak, travelResult }) {
     return null
 }
 
-function Map({ selectedDate, outbreaks, selectedOutbreak, travelResult }) {
+function Map({ selectedDate, outbreaks, selectedOutbreak, travelResult, darkMode }) {
     const markerRefs = useRef({})
 
     useEffect(() => {
@@ -116,7 +116,10 @@ function Map({ selectedDate, outbreaks, selectedOutbreak, travelResult }) {
             >
                 <FlyToOutbreak selectedOutbreak={selectedOutbreak} />
                 <FitBounds selectedOutbreak={selectedOutbreak} travelResult={travelResult} />
-                <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
+                <TileLayer url={darkMode
+                    ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                    : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                } />
                 {outbreaks
                     .filter(o => (o.latitude && o.longitude) && (!selectedDate || o.reportedDate.slice(0, 10) === selectedDate))
                     .map(o => (

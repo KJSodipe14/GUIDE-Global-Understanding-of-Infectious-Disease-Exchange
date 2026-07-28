@@ -8,6 +8,14 @@ function App() {
   const [selectedOutbreak, setSelectedOutbreak] = useState(null)
   const [targetCity, setTargetCity] = useState('')
   const [travelResult, setTravelResult] = useState(null)
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark'
+  })
+
+  useEffect(() => {
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light')
+    document.body.classList.toggle('dark', darkMode)
+  }, [darkMode])
 
   useEffect(() => {
     fetch('https://viruslocationproject.onrender.com/api/outbreaks')
@@ -70,9 +78,16 @@ function App() {
 
   return (
     <div className="app-container">
-      <header className="header">PandemicPulse</header>
+      <header className="header">
+        PandemicPulse
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          style={{ float: 'right', padding: '4px 10px', borderRadius: '4px', border: '1px solid var(--border)', background: 'transparent', cursor: 'pointer', fontSize: '12px', color: 'var(--text-h)' }}>
+          {darkMode ? '☀️ Light' : '🌙 Dark'}
+        </button>
+      </header>
       <div className="content">
-        <div className="map-section"><Map selectedDate={selectedDate} outbreaks={outbreaks} selectedOutbreak={selectedOutbreak} travelResult={travelResult} /></div>
+        <div className="map-section"><Map selectedDate={selectedDate} outbreaks={outbreaks} selectedOutbreak={selectedOutbreak} travelResult={travelResult} darkMode={darkMode} /></div>
         <div className="sidebar">
           <div className="date-picker"><input
                                           type="date"
