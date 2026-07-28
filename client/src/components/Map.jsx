@@ -106,7 +106,14 @@ function Map({ selectedDate, outbreaks, selectedOutbreak, travelResult }) {
 
     return (
         <div style={{ height: '100%', position: 'relative' }}>
-            <MapContainer center={[20, 0]} zoom={2} style={{ height: '100%', width: '100%' }}>
+            <MapContainer 
+                center={[20, 0]} 
+                zoom={2} 
+                style={{ height: '100%', width: '100%' }}
+                maxBounds={[[-90, -180], [90, 180]]}
+                maxBoundsViscosity={1.0}
+                minZoom={2}
+            >
                 <FlyToOutbreak selectedOutbreak={selectedOutbreak} />
                 <FitBounds selectedOutbreak={selectedOutbreak} travelResult={travelResult} />
                 <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
@@ -151,9 +158,9 @@ function Map({ selectedDate, outbreaks, selectedOutbreak, travelResult }) {
                 bottom: '30px',
                 right: '10px',
                 background: 'white',
-                padding: '10px',
+                padding: '6px 8px',
                 borderRadius: '6px',
-                fontSize: '11px',
+                fontSize: '9px',
                 zIndex: 1000,
                 boxShadow: '0 1px 4px rgba(0,0,0,0.3)'
             }}>
@@ -169,7 +176,7 @@ function Map({ selectedDate, outbreaks, selectedOutbreak, travelResult }) {
                     { label: 'Other', color: '#2ec4b6' },
                 ].map(item => (
                     <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '4px'}}>
-                        <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: item.color, flexShrink: 0 }} />
+                        <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color, flexShrink: 0 }} />
                         <span style={{ color: 'black' }}>{item.label}</span>
                     </div>
                 ))}

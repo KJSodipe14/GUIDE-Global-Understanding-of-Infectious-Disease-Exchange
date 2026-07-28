@@ -1,0 +1,181 @@
+Disease,Date,Location (state/province level),No. of Cases,Source
+Influenza A (H5N1) ,"June 13 - July 7, 2026","Sylhet Division, Bangladesh",1,"Bangladesh reports third human HPAI (H5) case (pediatric, age unknown) - BEACON"
+Influenza A (H5N1) ,"July 11, 2026","Meanchey District, Phnom Penh, Cambodia",1,https://www.cidrap.umn.edu/avian-influenza-bird-flu/cambodia-confirms-human-h5n1-avian-flu-case-h5n1-hits-more-utah-egg-farms 
+Influenza A (H7N9),----,----,----,----
+Influenza A (H1N1),"June 14 – June 20, 2026","New York City, New York, USA",1 (Lab confirmed),CDC FluView City Tracking Grid
+Influenza A (H1N1),"June 14 – June 20, 2026","Province of Ontario, Canada",12 (Lab isolates),https://health-infobase.canada.ca/respiratory-virus-surveillance/influenza.html 
+Influenza A (H1N1),"June 14 – June 20, 2026","Province of Quebec, Canada",5 (Lab isolates),https://health-infobase.canada.ca/respiratory-virus-surveillance/influenza.html 
+Influenza A (H1N1),"June 21 – June 27, 2026","State of Victoria, Australia",152 (Lab confirmed),Victorian Respiratory Surveillance Report
+Influenza A (H1N1),"June 28 – July 4, 2026","State of Victoria, Australia",178 (Lab confirmed),https://www.health.vic.gov.au/infectious-diseases/victorian-respiratory-surveillance-report 
+Influenza A (H1N1),"July 1 – July 15, 2026","Province of Guangdong, China",4 (Lab extractions),Hong Kong Centre for Health Protection Log
+Influenza A (H1N1),"July 6 – July 12, 2026",State of Western Australia,8 (Lab specimens),Immunisation Coalition Aus-Flu Tracking
+Influenza A (H1N1),"June 1 – June 15, 2026","Sylhet District, Bangladesh",2 (Lab confirmed),WHO SEARO RespiMart Log
+Influenza A (H1N1),"June 1 – July 22, 2026","National Capital Region (Delhi), India",Low Baseline,Indian Ministry of Health Genomic Track
+SARS-CoV-2,"June 21 – June 27, 2026","State of Victoria, Australia",382 (Notified case logs),Victorian Department of Health
+SARS-CoV-2,"June 21 – June 27, 2026",England (National/Regional),79 (Weekly notification total),UKHSA Data Dashboard
+SARS-CoV-2,"June 21 – June 27, 2026",United Kingdom (GP Sentinel Net),12 (Positive swab isolates),UKHSA Weekly Surveillance Archive
+SARS-CoV-2,"June 21 – July 4, 2026","Peel Region, Ontario, Canada",0.3% (Laboratory Positivity Rate),Peel Public Health
+SARS-CoV-2,"June 28 – July 4, 2026","State of Victoria, Australia",333 (Notified case logs),https://www.health.vic.gov.au/sites/default/files/2026-07/victorian-respiratory-surveillance-report-10-july-2026_0.pdf 
+SARS-CoV-2,"June 28 – July 4, 2026",United Kingdom (DataMart System),18 (Positive sample logs),https://www.gov.uk/government/statistics/national-flu-and-covid-19-surveillance-reports-2025-to-2026-season/national-flu-and-covid-19-surveillance-report-2-july-2026-week-27 
+SARS-CoV-2,"June 1 – June 30, 2026","Southern Provinces & Nationwide, China","79,000 (Confirmed case logs)",Chinese CDC via The Epoch Times
+SARS-CoV-2,"June 15 – June 21, 2026",African Regional Network,2.8% (Laboratory Positivity Rate),World Health Organization COVID-19 Dashboard
+SARS-CoV-2,"June 22 – June 28, 2026",African Regional Network,4.8% (Laboratory Positivity Rate),https://data.who.int/dashboards/covid19/summary 
+SARS-CoV-2,"July 6 – July 12, 2026","Clinical Sentinels, China",11.9% (Laboratory Positivity Rate),Chinese CDC via BEACON Bio
+Mpox (Clade I),"June 1 – June 23, 2026","Chicago, Illinois, USA",1 (Confirmed local transmission),Chicago Health Alert Network
+Mpox (Clade Ib),"June 1 – June 30, 2026","England (Majority London), UK",66 (Cumulative through June),UK Health Security Agency
+Mpox (Clade I),"June 1 – June 30, 2026",EU/EEA (Regional Sentinel Network),129 (Monthly notification total),European Centre for Disease Prevention and Control
+Mpox (Clade II),"June 1 – June 30, 2026",EU/EEA (Regional Sentinel Network),22 (Monthly notification total),https://www.gov.uk/government/publications/monkeypox-outbreak-epidemiological-overview/mpox-outbreak-epidemiological-overview-9-july-2026 
+Mpox (Clade Ib),"June 1 – June 30, 2026","Northern Ireland, UK",21 (Cumulative through June),https://www.ecdc.europa.eu/sites/default/files/documents/communicable-disease-threats-report-week-29-2026.pdf 
+Mpox (Clade I),"July 1 – July 22, 2026","State of Arizona, USA",1 (Confirmed travel-associated),Arizona Department of Health Services
+Mpox (Clade I),"May 1 – June 14, 2026","Antananarivo & Districts, Madagascar",689 (Confirmed case logs),World Health Organization Report #67
+Mpox (Clade I),"May 1 – June 14, 2026","Rift Valley Province & Local Hubs, Kenya",28 (Confirmed case logs),World Health Organization Report #67
+Mpox (Clade I),"May 1 – June 14, 2026","Nzérékoré Region, Guinea",15 (Confirmed case logs),World Health Organization Report #67
+Mpox (Clade I),"May 1 – June 14, 2026","Central Equatoria State, South Sudan",15 (Confirmed case logs),World Health Organization Report #67
+Mpox (Clade Ib),"Jan 1 – June 4, 2026","State of São Paulo, Brazil",4 (Travel-linked logs),Pan American Health Organization
+Mpox (Clade Ib),"Jan 1 – June 4, 2026","Buenos Aires Province, Argentina",2 (Travel-linked logs),Pan American Health Organization
+Mpox (Clade II),"June 1 – June 29, 2026","Mandaluyong City, Metro Manila, Philippines",1 (Confirmed local case),Mandaluyong City Health Office via Outbreak News
+Mpox (Clade Ib),"June 1 – June 30, 2026","Bangkok & Central Provinces, Thailand",29 (Local sustained transmission),World Health Organization SEARO Bulletin
+Mpox (Clade II),"June 1 – June 30, 2026","Northern & Southern Regions, Taiwan",15 (Local surveillance logs),Taiwan Centers for Disease Control
+Mpox (Clade Ib),"June 29 – July 12, 2026","Bangkok Metro Hub, Thailand",5 (Active cluster monitoring),World Health Organization SEARO Bulletin
+Mpox (Clade Ib),"July 1 – July 6, 2026",Northern Taiwan (Taipei Area Hub),1 (Imported travel-linked case),Taiwan Centers for Disease Control
+Measles,"June 23 – July 7, 2026","Central Region, Virginia, USA",32 (Confirmed local transmissions),U.S. Measles Tracker (IVAC)
+Measles,"June 23 – July 7, 2026","Lancaster County, Pennsylvania, USA",17 (Outbreak infection cluster),U.S. Measles Tracker (IVAC)
+Measles,"June 23 – July 7, 2026","Unknown County, Oregon, USA",6 (Symptomatic transmission surveillance),U.S. Measles Tracker (IVAC)
+Measles,"June 23 – July 7, 2026","Tricounty Health District, Utah, USA",4 (Active community flare-up),U.S. Measles Tracker (IVAC)
+Measles,"June 23 – July 7, 2026","Utah County, Utah, USA",2 (Local surveillance logs),U.S. Measles Tracker (IVAC)
+Measles,"June 23 – July 7, 2026","Salt Lake County, Utah, USA",2 (Local surveillance logs),U.S. Measles Tracker (IVAC)
+Measles,"July 1 – July 22, 2026","State of Delaware, USA",2 (Outbreak declaration metrics),Delaware Division of Public Health
+Measles,"July 1 – July 22, 2026","Baltimore Area, Maryland, USA",2 (Confirmed travel-associated logs),FOX 5 DC Health Update
+Measles,"June 1 – June 30, 2026","Greater London Region, England, UK",463 (Cumulative through June),UKHSA Measles Epidemiology Tracker
+Measles,"June 1 – June 30, 2026","West Midlands Region, England, UK",147 (Cumulative through June),UKHSA Measles Epidemiology Tracker
+Measles,"June 1 – June 30, 2026","North West Region, England, UK",89 (Cumulative through June),UKHSA Measles Epidemiology Tracker
+Measles,"June 1 – June 30, 2026","South East Region, England, UK",17 (Cumulative through June),UKHSA Measles Epidemiology Tracker
+Measles,"June 1 – June 30, 2026","Greater London Region, England, UK",463 (Cumulative through June),UKHSA Measles Epidemiology Tracker
+Measles,"June 1 – June 30, 2026","West Midlands Region, England, UK",147 (Cumulative through June),UKHSA Measles Epidemiology Tracker
+Measles,"June 1 – June 30, 2026","North West Region, England, UK",89 (Cumulative through June),UKHSA Measles Epidemiology Tracker
+Measles,"Jan 1 – June 30, 2026","Yvelines Department, Île-de-France, France",47 (10% of national cumulative),Santé Publique France National Bulletin
+Measles,"Jan 1 – June 30, 2026","Moselle Department, Grand Est, France",38 (8% of national cumulative),Santé Publique France National Bulletin
+Measles,"Jan 1 – June 30, 2026","Hauts-de-Seine Department, France",38 (8% of national cumulative),Santé Publique France National Bulletin
+Measles,"Jan 1 – June 30, 2026","Haute-Savoie Department, France",33 (7% of national cumulative),Santé Publique France National Bulletin
+Measles,"Jan 1 – June 30, 2026","Paris Department, Île-de-France, France",33 (7% of national cumulative),Santé Publique France National Bulletin
+Measles,June 2026,"Free State, South Africa",32 (New cases reported in June),NICD Weekly Situation Report
+Measles,June 2026,"Western Cape, South Africa",30 (New cases reported in June),NICD Weekly Situation Report
+Measles,June 2026,"Gauteng, South Africa",20 (New cases reported in June),NICD Weekly Situation Report
+Measles,June 2026,"Northern Cape, South Africa",18 (New cases reported in June),NICD Weekly Situation Report
+Measles,June 2026,"Limpopo, South Africa",14 (New cases reported in June),NICD Weekly Situation Report
+Measles,June 2026,"Sub-national level (Bangladesh, India, Nepal, Thailand, Maldives)",Active surge & outbreaks reported,WHO South-East Asia Region
+Measles,June–July 2026,"Conflict-affected zones (Sudan, Nigeria, Yemen, Cameroon)",Ongoing regional resurgence,ReliefWeb / Save the Children
+Polio (WPV1),June 2026,"Herat / Helmand / Nangarhar, Afghanistan",1,GPEI Polio This Week
+Polio (cVDPV3),"June 1, 2026","Zamfara State, Nigeria",1,GPEI Polio This Week
+Polio (cVDPV1),"June 1, 2026 (Env Detection)","Sud-Ouest Region, Madagascar",0 (1 Env sample),GPEI Polio This Week
+Polio (WPV1),"June 11, 2026 (Env Detection)","Peshawar, Khyber Pakhtunkhwa, Pakistan",0 (1 Env sample),GPEI Polio This Week
+Dengue,02 July 2026,Vanuatu (Pacific region),29,(Travel Health Pro)
+Dengue,19 June 2026,Western Province (Sri Lanka),"44,000+",(Reuters)
+Dengue,July 2026 (EpiWeek 28),"Upolu Island, Samoa",32 new cases (92% of national weekly total),ReliefWeb / Pacific Community (SPC)
+Dengue,July 2026 (as of July 19),New Caledonia (Territory-wide),"2,214 cumulative cases (33 new cases)",DASS Nouvelle-Calédonie via ReliefWeb
+Dengue,July 2026 (as of July 17),"Futuna Island, Wallis and Futuna",27 cumulative cases (5 new cases),ReliefWeb / Pacific Community (SPC)
+Dengue,July 2026 (as of July 17),"Wallis Island, Wallis and Futuna",20 cumulative cases (1 new case),ReliefWeb / Pacific Community (SPC)
+Dengue,July 2026 (EpiWeek 27),"South-West Efate Island, Shefa Province, Vanuatu",38 cumulative cases (9 new cases),ReliefWeb / Pacific Community (SPC)
+Dengue,July 2026 (EpiWeek 28),American Samoa (Territory-wide),"1,036 cumulative cases (2 new cases)",ReliefWeb / Pacific Community (SPC)
+Dengue,July 2026 (EpiWeek 29: July 13–19),"Western Province (Gampaha/Colombo/Kalutara), Sri Lanka","3,870 weekly cases (52.4% of 7,385 national weekly cases)",National Dengue Control Unit / ReliefWeb
+Dengue,June 2026 (Monthly Total),"National / Western Province Focus, Sri Lanka","14,446 cases",Epidemiology Unit Sri Lanka
+Dengue,July 2026 (week ending July 5),"Bandiagara & Bamako Regions, Mali",12 confirmed cases (weekly update),UN OCHA / ReliefWeb
+Dengue,June 2026 (EpiWeek 25 report),"Garissa County, Kenya","1,583 cumulative cases",WHO AFRO Weekly Bulletin
+Dengue,June 2026 (EpiWeek 22),"Southern Cone Sub-region (led by Brazil), South America","26,013 new weekly cases",PAHO/WHO Epidemiological Report
+Dengue,June 2026 (EpiWeek 22),"Andean Sub-region (Venezuela, Colombia, Peru), South America","5,624 new weekly cases (uptick in Venezuela)",PAHO/WHO Epidemiological Report
+Chikungunya,Jan–July 2026,"Goiás, Mato Grosso do Sul, Minas Gerais, São Paulo, Brazil","101,588 cumulative cases",PAHO / Global Health Update
+Chikungunya,Jan–July 2026,"Santa Cruz, Cochabamba, La Paz, Tarija, Bolivia","41,354 cumulative cases",ECDC / PAHO Overview
+Chikungunya,Jan–July 2026,"Salta and Tucumán, Argentina","11,852 cumulative cases",ECDC / PAHO Overview
+Chikungunya,Jan–July 2026,"Nationwide, Suriname","7,484 cumulative cases",PAHO / BEACON Bio
+Chikungunya,July 2026,"Guanacaste & Central Valley, Costa Rica",21 cases (Local outbreak alert),U.S. Embassy Costa Rica / Tico Times
+Chikungunya,July 2026,"Matanzas, La Habana, Camagüey, Cienfuegos, Artemisa, Villa Clara, Cuba","1,457+ cumulative cases",ECDC Monthly Bulletin
+Chikungunya,June 2026,"Mahajanga, Toamasina, Antsirabe, Madagascar",29 confirmed cases,ECDC / WHO AFRO
+Chikungunya,June 2026,"Multiple Provinces, Pakistan",16 confirmed cases,ECDC Global Report
+Chikungunya,July 2026 (EpiWeek 28),"Travel-acquired, New Zealand",1 confirmed travel case,Pacific Community (SPC) / ReliefWeb
+Chikungunya,June 2026,"Kerala, India","617 confirmed (2,161 suspected) cases",WHO SEARO / UNITEDengue Update
+Chikungunya,June 2026,"Multiple Provinces, Pakistan",16 confirmed cases,ECDC Monthly Bulletin
+Zika,July 2026 (EpiWeek 28),"Auckland Region / Travel-acquired (Fiji), New Zealand","2 cases (1 confirmed, 1 probable)",Pacific Community (SPC) / ReliefWeb
+Zika,"June 19, 2026","Skopje Region / Travel-acquired (Maldives), North Macedonia",1 confirmed case,NaTHNaC / TravelHealthPro
+Zika,June–July 2026,"Greater London & South East England / Travel-acquired (Indonesia, Thailand, Maldives, Malaysia), United Kingdom",8 cumulative travel cases,UK Health Security Agency (UKHSA)
+Zika,July 2026,"State of California, United States",0 reported cases,California Department of Public Health
+Yellow Fever,June–July 2026,"Tolima Department, Colombia",53 cumulative cases (26 deaths),NaTHNaC / TravelHealthPro
+Yellow Fever,June–July 2026,"Huila Department, Colombia",Active local transmission reported,BEACON Bio Report
+Yellow Fever,June–July 2026,"Cauca Department, Colombia",Active local transmission reported,BEACON Bio Report
+Yellow Fever,June–July 2026,"Putumayo Department, Colombia",Active local transmission reported,BEACON Bio Report
+Yellow Fever,June–July 2026,"Grand Gedeh County, Liberia",1 confirmed case (21 suspected nationwide),NaTHNaC / NPHIL
+Yellow Fever,June 2026,"São Paulo State, Brazil",9 confirmed cases (5 deaths),NaTHNaC / Brazil MoH
+Yellow Fever,June 2026,"La Paz Department, Bolivia",1 fatal confirmed case (Apolo municipality),PAHO / WHO Global DON
+Yellow Fever,June 2026,"Madre de Dios Department, Peru",2 confirmed cases,NaTHNaC / PAHO Updates
+Yellow Fever,June 2026,"Orellana Province, Ecuador",1 fatal case (Joya de los Sachas Canton),Ecuador MoH / TravelHealthPro
+Yellow Fever,June 2026,"Aragua State, Venezuela",Active sylvatic transmission reported,PAHO / WHO Regional Report
+Ebola,July 2026 (as of July 21),"Ituri Province, Democratic Republic of the Congo","2,248 confirmed cases (864 deaths)",ECDC / WHO DON Report
+Ebola,July 2026 (as of July 21),"North Kivu Province, Democratic Republic of the Congo",259 confirmed cases (152 deaths),ECDC / WHO DON Report
+Ebola,July 2026 (as of July 21),"Haut-Uele Province, Democratic Republic of the Congo",21 confirmed cases (12 deaths),ECDC / WHO DON Report
+Ebola,July 2026 (as of July 21),"Tshopo Province, Democratic Republic of the Congo",5 confirmed cases (4 deaths),ECDC / WHO DON Report
+Ebola,July 2026 (as of July 21),"South Kivu Province, Democratic Republic of the Congo",3 confirmed cases (1 death),ECDC / WHO DON Report
+Ebola,June–July 2026 (as of July 20),"Central Region (Kampala / Mulago Isolation), Uganda","20 cumulative cases (15 imported from DRC, 2 deaths)",WHO / UKHSA Monitoring
+Ebola,July 2026 (Evacuated July 13),"Hesse (Frankfurt am Main), Germany",1 imported case (US worker evacuated from DRC),WHO Disease Outbreak News
+Ebola,June 2026 (June 24 report),"Île-de-France, France",1 imported case (traveler from DRC),ECDC Threat Assessment
+Marburg,June–July 2026 (Notified June 30),"Kyegegwa District (Western Region), Uganda",1 confirmed case (fatal),The BMJ / WHO Update
+Nipah,"June 11, 2026 (WHO Update June 25)","Kozhikode District (Kerala State), India","1 lab-confirmed case (104 monitored contacts, 0 secondary cases)",WHO Disease Outbreak News
+CCHF,June–July 2026 (as of July 12),"Dhi Qar Governorate, Iraq",109 cumulative confirmed cases (8 deaths),UKHSA / Iraq MoH
+CCHF,June–July 2026 (as of July 12),"Basra Governorate, Iraq",24 confirmed cases (1 death),UKHSA / Iraq MoH
+CCHF,June–July 2026 (as of July 12),"Maysan Governorate, Iraq",21 confirmed cases (0 deaths),UKHSA / Iraq MoH
+CCHF,July 2026 (Reported July 10),"Province of Salamanca, Spain","1 fatal confirmed case (84-year-old male, tick bite)",Castilla y León MoH / ECDC
+CCHF,June 2026 (Reported June 26),"Province of Salamanca, Spain",1 confirmed case (locally acquired),Castilla y León MoH / ECDC
+CCHF,July 2026 (Reported July 8),"Kanungu District, Uganda","1 confirmed case (gold miner, 36 contacts monitored)",UKHSA Outbreak Monitoring
+CCHF,June–July 2026 (as of July 12),"Dhi Qar Governorate, Iraq",109 cumulative confirmed cases (8 deaths),UKHSA / Iraq MoH
+CCHF,June–July 2026 (as of July 12),"Basra Governorate, Iraq",24 confirmed cases (1 death),UKHSA / Iraq MoH
+CCHF,June–July 2026 (as of July 12),"Maysan Governorate, Iraq",21 confirmed cases (0 deaths),UKHSA / Iraq MoH
+CCHF,June–July 2026,"Wasit Governorate, Iraq",Active cases & livestock restriction alert,BEACON Bio Report
+CCHF,June–July 2026,"Muthanna Governorate, Iraq",Active local transmission reported,IFRC ReliefWeb / Iraq MoH
+CCHF,July 2026 (Reported July 10),"Province of Salamanca, Spain",1 fatal confirmed case (84-year-old male),Castilla y León MoH / ECDC
+CCHF,June 2026 (Reported June 26),"Province of Salamanca, Spain",1 confirmed case (locally acquired),Castilla y León MoH / ECDC
+CCHF,July 2026 (Reported July 8),"Kanungu District, Uganda",1 confirmed case (36 contacts monitored),UKHSA Outbreak Monitoring
+MERS-CoV,--,--,--,--
+RSV,--,--,--,--
+Norovirus,"June 12 – July 2, 2026","California (San Francisco Port Arrival), United States","132 confirmed cases (107 passengers, 25 crew aboard Ruby Princess)",U.S. CDC Vessel Sanitation Program
+Norovirus,"June 25 – June 30, 2026","Alaska (Juneau / Coastal Waters), United States","21 confirmed cases (19 passengers, 2 crew aboard National Geographic Sea Bird)",CDC VSP / Cruise Law News
+Norovirus,June 2026 (Weeks 23–26),"All Regions / Countrywide, England (United Kingdom)",682 lab-confirmed cases (58.5% above 5-season average),UK Health Security Agency (UKHSA)
+Norovirus,June 2026 (Seasonal update),"14 NoroSTAT States (e.g., Michigan, Ohio, Virginia), United States","1,287 cumulative seasonal outbreaks reported through June 11",U.S. CDC NoroSTAT Surveillance
+Norovirus / Viral Gastro,June–July 2026 (as of July 19),"New South Wales, Australia",~420 hospital ED visits/week for acute gastroenteritis (~15–20 institutional norovirus outbreaks),NSW Health Surveillance Reports
+Norovirus / Viral Gastro,June–July 2026 (Week 28 update),"Victoria, Australia",~12–15 reported institutional outbreaks/week (Aged care & childcare settings),Victoria Department of Health
+Norovirus / Viral Gastro,June–July 2026 (Year-to-Date / Mid-Winter),"Queensland, Australia",~350–400 weekly clinical ED presentations for viral gastro,Queensland Health Notifiable Conditions
+Hepatitis A,July 2026 (as of July 10),"New York State, United States",24 confirmed cases (Multistate frozen clam outbreak),U.S. CDC / FDA
+Hepatitis A,July 2026 (as of July 10),"Pennsylvania, United States",4 confirmed cases (Multistate frozen clam outbreak),U.S. CDC / FDA
+Hepatitis A,July 2026 (as of July 10),"Minnesota, United States",2 confirmed cases (Multistate frozen clam outbreak),U.S. CDC / FDA
+Hepatitis A,June 2026 (as of June 2026 update),"Manitoba, Canada","601 cumulative cases (133 hospitalizations, 3 deaths)",Manitoba Health / BEACON
+Hepatitis A,June–July 2026,"State of California (Los Angeles County), United States",12 confirmed cases in 2026 (209 cumulative community cases),LA County Department of Public Health
+Hepatitis A,June 2026,"Vale of Glamorgan (Barry, Wales), United Kingdom",Active household outbreak cluster (~3 households affected),Public Health Wales
+Hepatitis A,June–July 2026,"Budapest / Pest County, Hungary",76 cases in early 2026 (Continued elevated regional transmission),NNGYK / Portfolio.hu
+Hepatitis A,June 2026 (FDA Alert update June 8),"Guayas Province, Ecuador",Origin region for contaminated frozen clam export outbreak,U.S. FDA / CDC Alert
+Hepatitis A,June–July 2026,"Eastern Region, Ghana",Active local transmission & cluster monitoring,Ghana Health Service / BEACON
+Hepatitis A,June–July 2026,"New South Wales, Australia",~3–5 sporadic cases/month (Low baseline surveillance level),Australian CDC / NSW Health
+Cholera,10 July 2026,Darfur/Kordofan regions (Sudan),"1,300+",(Reuters)
+Cholera,June 2026 (report as of 14 June),Malawi (Blantyre region context),882,(ECDC)
+Cholera,July 2026 (Declared June 26),"Bangui / Bimbo / Mbaïki, Central African Republic",650 suspected cases (44 deaths),UN OCHA / UNICEF Flash Update
+Cholera,July 2026 (as of July 7),"West Kordofan & Northern States, Sudan","1,330 confirmed cases (114 deaths)",UN News / WHO Update
+Cholera,June 2026 (as of June 14),"Multiple Provinces (Kabul, etc.), Afghanistan","56,662 cumulative cases (28 deaths)",WHO Global Cholera Dashboard
+Cholera,June 2026 (as of June 7),"Multiple Provinces, Democratic Republic of the Congo","30,297 cumulative cases (847 deaths)",WHO Global Cholera Dashboard
+Cholera,June 2026 (as of June 7),"Multiple States (Lagos, Ogun, etc.), Nigeria","11,723 cumulative cases (117 deaths)",WHO Global Cholera Dashboard
+Cholera,June 2026 (as of June 14),"Multiple States/Provinces, South Sudan","8,181 cumulative cases (86 deaths)",WHO Global Cholera Dashboard
+Cholera,June 2026 (as of June 14),"Cabo Delgado / Nampula, Mozambique","7,564 cumulative cases (66 deaths)",WHO Global Cholera Dashboard
+Cholera,June 2026 (as of June 7),"Multiple Governorates, Yemen","5,054 cumulative cases (7 deaths)",WHO Global Cholera Dashboard
+Cholera,June 2026 (as of June 14),"Lilongwe / Southern Region, Malawi","3,191 cumulative cases (30 deaths)",WHO Global Cholera Dashboard
+Cholera,July 2026 (Reported July 3),"Far North Region, Cameroon",Active outbreak cluster (11.84 attack rate per 100k),UNICEF Cameroon Situation Report
+Cholera,June 2026 (as of May/June),"Ouest / Artibonite Departments, Haiti",529 cumulative cases (2 deaths),WHO / PAHO Surveillance
+Typhoid Fever (S. Typhi),"July 1–19, 2026","Ahmedabad District (Gujarat State), India","184 confirmed cases (1,118 cumulative YTD)",Ahmedabad Municipal Corp / Times of India
+Typhoid Fever (S. Typhi),July 2026 (as of July 22),"Pune District (Maharashtra State), India",">50% increase in OPD visits for gastro/typhoid (concentrated in Balewadi, Baner, Hinjewadi)",Times of India / Local Health Authorities
+Typhoid Fever (S. Typhi),January–June 2026,"All Regions, United Kingdom",287 cumulative travel-associated enteric fever cases (Typhoid and Paratyphoid combined),UK Health Security Agency (UKHSA)
+Typhoid Fever (S. Typhi),July 2026 (Week 27: July 5–11),"Nationwide (50 States & Territories), United States",5 reported weekly cases (~180–220 cumulative YTD imported cases),U.S. CDC NNDSS Weekly Tables
+Typhoid Fever (S. Typhi),June 2026,"Gandhinagar District (Gujarat State), India",144 suspected cases (Point-source pipeline contamination cluster),BEACON Bio Epidemiological Report
+Shigellosis,June–July 2026 (as of June 18),"Kozhikode District (Kerala State), India",74 confirmed cases (Regional outbreak epicenter),Kerala Health Dept / MrMed Health
+Shigellosis,June–July 2026 (as of June 18),"Wayanad District (Kerala State), India",~25 cases / school cluster,Kerala Health Dept / MrMed Health
+Shigellosis,June–July 2026 (as of June 18),"Malappuram, Thrissur, Thiruvananthapuram (Kerala), India",~47 cumulative confirmed cases (5 deaths),Kerala Health Dept / MrMed Health
+Shigellosis,June 2026 update (Active travel monitoring),"United Kingdom (England, Scotland, Wales), United Kingdom",112 confirmed cases (Travel-associated cluster from Cabo Verde),UKHSA / TravelHealthPro
+Shigellosis,March–June 2026 update (Multicountry monitoring),"13 EU/EEA Countries (Germany, France, Sweden, Netherlands, etc.)",503 confirmed travel-associated cases (linked to Cabo Verde travel),European Centre for Disease Prevention and Control (ECDC)
+Shigellosis,June–July 2026 (National surveillance),"Nationwide (All 50 States), United States","~8,000–9,000 weekly baseline cases (~8.5% identified as extensively drug-resistant, XDR)",U.S. CDC / MMWR Drug Resistance Report
+Shigella,June–July 2026,"Kozhikode & Wayanad (Kerala), India",150+ confirmed cases (7 deaths),Kerala Health Dept / MrMed
+Shigella,Mid-2026,"Sal & Boa Vista Islands, Cabo Verde",503 travel-imported cases across 13 EU countries,ECDC / TravelHealthPro
+Shigella (XDR Strain),2026 Update,"Los Angeles, California, United States",Emerging genome-sequenced cluster,CIDRAP / UCLA Health
+Shigella,Mid-2026,"Chicago Metro, Illinois, United States",Active state monitoring (~8.5% XDR rate),IL Patch / CDC MMWR
