@@ -1,28 +1,29 @@
 import kjPhoto from "../assets/kj.jpg";
-import anujPhoto from "../assets/Anuj.jpg"
+import anujPhoto from "../assets/Anuj.jpg";
+import inayatPhoto from "../assets/inayat2.png";
 
 function Contributors() {
   const contributors = [
     {
-      name: "Anuj Tiwari",
-      role: "Supervisor & Geospatial Analytics Lead",
-      org: "Discovery Partners Institute (DPI)",
-      linkedin: "https://www.linkedin.com/in/dranujtiwari/",
-      photo: anujPhoto,
-    },
-    {
       name: "Olukolajo Sodipe",
-      role: "Intern — Full Stack Developer",
+      role: "Intern - Full Stack Developer",
       org: "Discovery Partners Institute (DPI)",
       linkedin: "https://www.linkedin.com/in/olukolajo-sodipe/",
       photo: kjPhoto,
     },
     {
+      name: "Anuj Tiwari",
+      role: "Project Supervisor",
+      org: "Discovery Partners Institute (DPI)",
+      linkedin: "https://www.linkedin.com/in/dranujtiwari/",
+      photo: anujPhoto,
+    },
+    {
       name: "Inayat Chandra",
-      role: "Intern — Research & Data",
+      role: "Intern - Research & Data",
       org: "Discovery Partners Institute (DPI)",
       linkedin: "https://www.linkedin.com/in/inayat-chandra-08733441a/",
-      photo: null,
+      photo: inayatPhoto,
     },
   ];
 
@@ -49,7 +50,7 @@ function Contributors() {
             lineHeight: "1.7",
           }}
         >
-          The team behind AirborneTrack.
+          The team behind GUIDE.
         </p>
         <div
           style={{
@@ -89,7 +90,7 @@ function Contributors() {
                     width: "64px",
                     height: "64px",
                     borderRadius: "50%",
-                    background: "var(--accent-bg)",
+                    background: "var(--code-bg)",
                     border: "2px solid var(--accent)",
                     display: "flex",
                     alignItems: "center",

@@ -236,7 +236,8 @@ function App() {
   return (
     <div className="app-container">
       <header className="header">
-        AirborneTrack
+        GUIDE
+        Global Understanding of Infectious Disease Exchange
         <nav
           style={{ display: "inline-flex", gap: "20px", marginLeft: "30px" }}
         >
