@@ -33,7 +33,7 @@ const cityToIATA = {
   'kansas city': 'MCI',
   'indianapolis': 'IND',
   'columbus': 'CMH',
-  'san jose': 'SJC',
+  'san jose, ca': 'SJC',
   'oakland': 'OAK',
   'sacramento': 'SMF',
   'raleigh': 'RDU',
@@ -83,7 +83,7 @@ const cityToIATA = {
   'mexico': 'MEX',
 
   // Central America & Caribbean
-  'san jose': 'SJO', // Costa Rica
+  'san jose costa rica': 'SJO', // Costa Rica
   'costa rica': 'SJO',
   'panama city': 'PTY',
   'panama': 'PTY',

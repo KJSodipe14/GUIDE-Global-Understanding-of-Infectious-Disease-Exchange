@@ -1,9 +1,16 @@
 import Map from "./components/Map";
+import Icon from "./components/Icon";
 import "./App.css";
 import { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Contributors from "./pages/Contributors";
+
+// Toggle this while debugging locally so requests actually hit your local
+// `node index.js` server instead of production. Switch back to the Render
+// URL before deploying/pushing.
+// const API_BASE = "http://localhost:10000";
+const API_BASE = "https://viruslocationproject.onrender.com";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState("");
@@ -21,7 +28,7 @@ function App() {
   }, [darkMode]);
 
   useEffect(() => {
-    fetch("https://viruslocationproject.onrender.com/api/outbreaks")
+    fetch(`${API_BASE}/api/outbreaks`)
       .then((res) => res.json())
       .then((data) => setOutbreaks(data));
   }, []);
@@ -43,10 +50,10 @@ function App() {
 
     const [fromRes, toRes] = await Promise.all([
       fetch(
-        `https://viruslocationproject.onrender.com/api/airport?city=${encodeURIComponent(fromCity)}`,
+        `${API_BASE}/api/airport?city=${encodeURIComponent(fromCity)}`,
       ),
       fetch(
-        `https://viruslocationproject.onrender.com/api/airport?city=${encodeURIComponent(targetCity)}`,
+        `${API_BASE}/api/airport?city=${encodeURIComponent(targetCity)}`,
       ),
     ]);
     const fromData = await fromRes.json();
@@ -72,21 +79,40 @@ function App() {
     const distance = R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const flightHours = (distance / 900).toFixed(1);
 
-    let flights = [];
+    // Default: no flight data available, direct point-to-point route only.
+    let flightType = "none";
+    let legs = [];
+    let hub = null;
+
     if (fromData.iata && toData.iata) {
       const flightRes = await fetch(
-        `https://viruslocationproject.onrender.com/api/flights?dep_iata=${fromData.iata}&arr_iata=${toData.iata}`,
+        `${API_BASE}/api/flights?dep_iata=${fromData.iata}&arr_iata=${toData.iata}`,
       );
       const flightData = await flightRes.json();
-      flights = flightData.data || [];
+      flightType = flightData.type || "none";
+      legs = flightData.legs || [];
+      hub = flightData.hub || null;
     }
+
+    // Build the ordered waypoint list Map.jsx draws the route from.
+    // Direct/none: just origin -> destination. Connecting: origin -> hub -> destination.
+    const route = [
+      { lat: selectedOutbreak.latitude, lng: selectedOutbreak.longitude, label: fromCity },
+      ...(flightType === "connecting" && hub
+        ? [{ lat: hub.lat, lng: hub.lng, label: hub.iata }]
+        : []),
+      { lat, lng, label: targetCity },
+    ];
 
     setTravelResult({
       distance: Math.round(distance),
       flightHours,
       fromIATA: fromData.iata || "Unknown",
       toIATA: toData.iata || "Unknown",
-      flights,
+      flightType,
+      flights: legs,
+      hub,
+      route,
       targetLat: lat,
       targetLng: lng,
     });
@@ -188,18 +214,23 @@ function App() {
                   }}
                 >
                   <p style={{ margin: "0 0 4px 0" }}>
-                    📍 Distance: <b>{travelResult.distance} km</b>
+                    <Icon name="pin" size={13} /> Distance: <b>{travelResult.distance} km</b>
                   </p>
                   <p style={{ margin: "0 0 4px 0" }}>
-                    ✈️ Flight time: <b>~{travelResult.flightHours} hours</b>
+                    <Icon name="plane" size={13} /> Flight time: <b>~{travelResult.flightHours} hours</b>
                   </p>
                   <p style={{ margin: "0 0 8px 0" }}>
-                    🛫 {travelResult.fromIATA} → {travelResult.toIATA}
+                    <Icon name="plane" size={13} /> {travelResult.fromIATA} → {travelResult.toIATA}
+                    {travelResult.flightType === "connecting" && travelResult.hub && (
+                      <span> (via {travelResult.hub.iata})</span>
+                    )}
                   </p>
                   {travelResult.flights.length > 0 ? (
                     <div>
                       <p style={{ margin: "0 0 4px 0", fontWeight: 600 }}>
-                        Flights ({travelResult.flights.length}):
+                        {travelResult.flightType === "connecting"
+                          ? "Connecting flight:"
+                          : `Flights (${travelResult.flights.length}):`}
                       </p>
                       {travelResult.flights.slice(0, 10).map((f, i) => (
                         <div
@@ -209,6 +240,11 @@ function App() {
                             borderBottom: "1px solid var(--border)",
                           }}
                         >
+                          {travelResult.flightType === "connecting" && (
+                            <span style={{ color: "var(--text)" }}>
+                              Leg {i + 1}:{" "}
+                            </span>
+                          )}
                           <b>{f.airline.name}</b> {f.flight.iata} —{" "}
                           {f.departure.scheduled?.slice(11, 16)} →{" "}
                           {f.arrival.scheduled?.slice(11, 16)}
@@ -217,7 +253,7 @@ function App() {
                     </div>
                   ) : (
                     <p style={{ margin: "0", color: "var(--text)" }}>
-                      No flights found for this route.
+                      No flights found for this route, direct or connecting.
                     </p>
                   )}
                 </div>
@@ -285,7 +321,11 @@ function App() {
             color: "var(--text-h)",
           }}
         >
-          {darkMode ? "☀️ Light" : "🌙 Dark"}
+          {darkMode ? (
+            <><Icon name="sun" size={13} /> Light</>
+          ) : (
+            <><Icon name="moon" size={13} /> Dark</>
+          )}
         </button>
       </header>
       <Routes>
