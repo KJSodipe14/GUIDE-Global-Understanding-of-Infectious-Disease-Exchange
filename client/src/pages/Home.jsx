@@ -1,4 +1,5 @@
 import logo from '../assets/guide-logo.png';
+import { Link } from 'react-router-dom';
 
 // Small line-icon set — no emoji, matches the two-tone circle-badge look
 const ICON_PATHS = {
@@ -155,8 +156,8 @@ function Home() {
           </div>
 
           <div style={{ display: "flex", gap: "14px" }}>
-            <a
-              href="/map"
+            <Link
+              to="/map"
               style={{
                 padding: "13px 26px",
                 borderRadius: "8px",
@@ -169,7 +170,7 @@ function Home() {
               }}
             >
               Explore the Map →
-            </a>
+            </Link>
             <a
               href="#how-it-works"
               style={{

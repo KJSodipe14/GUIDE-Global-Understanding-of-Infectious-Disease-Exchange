@@ -204,6 +204,25 @@ function App() {
                 Calculate
               </button>
               {travelResult && (
+                <button
+                  onClick={() => {
+                    setTravelResult(null);
+                    setTargetCity("");
+                  }}
+                  style={{
+                    padding: "8px",
+                    borderRadius: "4px",
+                    background: "transparent",
+                    color: "var(--text-h)",
+                    border: "1px solid var(--border)",
+                    cursor: "pointer",
+                    fontSize: "12px",
+                  }}
+                >
+                  Reset
+                </button>
+              )}
+              {travelResult && (
                 <div
                   style={{
                     fontSize: "12px",
