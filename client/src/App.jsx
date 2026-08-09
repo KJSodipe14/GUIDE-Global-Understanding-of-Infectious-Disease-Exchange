@@ -9,7 +9,7 @@ import Contributors from "./pages/Contributors";
 // Toggle this while debugging locally so requests actually hit your local
 // `node index.js` server instead of production. Switch back to the Render
 // URL before deploying/pushing.
-// const API_BASE = "http://localhost:10000";
+//const API_BASE = "http://localhost:10000";
 const API_BASE = "https://viruslocationproject.onrender.com";
 
 function App() {
@@ -48,25 +48,32 @@ function App() {
     const fromCity = selectedOutbreak.city || selectedOutbreak.disease;
     console.log("fromCity:", fromCity);
 
-    const [fromRes, toRes] = await Promise.all([
-      fetch(
-        `${API_BASE}/api/airport?city=${encodeURIComponent(fromCity)}`,
-      ),
-      fetch(
-        `${API_BASE}/api/airport?city=${encodeURIComponent(targetCity)}`,
-      ),
-    ]);
-    const fromData = await fromRes.json();
-    const toData = await toRes.json();
-    console.log("fromData:", fromData);
-    console.log("toData:", toData);
-
+    // Geocode the target city first — its coordinates are needed both for
+    // the distance calculation AND as a fallback for its own airport lookup,
+    // so this has to happen before the airport requests, not alongside them.
     const geoRes = await fetch(
       `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(targetCity)}&key=${import.meta.env.VITE_OPENCAGE_API_KEY}`,
     );
     const geoData = await geoRes.json();
     if (geoData.results.length === 0) return;
     const { lat, lng } = geoData.results[0].geometry;
+
+    // Pass known coordinates alongside each city name — if the name isn't in
+    // the airport dictionary (small towns like "Mongbwalu" never will be),
+    // the backend falls back to the nearest major airport by distance
+    // instead of giving up entirely.
+    const [fromRes, toRes] = await Promise.all([
+      fetch(
+        `${API_BASE}/api/airport?city=${encodeURIComponent(fromCity)}&lat=${selectedOutbreak.latitude}&lng=${selectedOutbreak.longitude}`,
+      ),
+      fetch(
+        `${API_BASE}/api/airport?city=${encodeURIComponent(targetCity)}&lat=${lat}&lng=${lng}`,
+      ),
+    ]);
+    const fromData = await fromRes.json();
+    const toData = await toRes.json();
+    console.log("fromData:", fromData);
+    console.log("toData:", toData);
 
     const R = 6371;
     const dLat = ((lat - selectedOutbreak.latitude) * Math.PI) / 180;
@@ -109,6 +116,8 @@ function App() {
       flightHours,
       fromIATA: fromData.iata || "Unknown",
       toIATA: toData.iata || "Unknown",
+      fromIsNearest: fromData.source === "nearest",
+      toIsNearest: toData.source === "nearest",
       flightType,
       flights: legs,
       hub,
@@ -244,6 +253,15 @@ function App() {
                       <span> (via {travelResult.hub.iata})</span>
                     )}
                   </p>
+                  {(travelResult.fromIsNearest || travelResult.toIsNearest) && (
+                    <p style={{ margin: "0 0 8px 0", fontSize: "11px", color: "var(--text)", fontStyle: "italic" }}>
+                      {travelResult.fromIsNearest && travelResult.toIsNearest
+                        ? "Both airports are the nearest major airport to each location, not necessarily a local one."
+                        : travelResult.fromIsNearest
+                        ? `${travelResult.fromIATA} is the nearest major airport to the outbreak location, not necessarily a local one.`
+                        : `${travelResult.toIATA} is the nearest major airport to the destination, not necessarily a local one.`}
+                    </p>
+                  )}
                   {travelResult.flights.length > 0 ? (
                     <div>
                       <p style={{ margin: "0 0 4px 0", fontWeight: 600 }}>
@@ -272,7 +290,11 @@ function App() {
                     </div>
                   ) : (
                     <p style={{ margin: "0", color: "var(--text)" }}>
-                      No flights found for this route, direct or connecting.
+                      No live flight data available for this route right now
+                      — distance and estimated flight time above are still
+                      accurate. Smaller regional airports often show no
+                      results simply because no flight happens to be
+                      scheduled at this exact moment.
                     </p>
                   )}
                 </div>
